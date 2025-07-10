@@ -83,5 +83,10 @@ We get this message:
 
 And an option to delete the branch by clicking **Delete branch**, which we'll do.
 
-After we've done that, we can delete that branch locally as well.
+After we've done that, we can delete that branch locally as well. First, move the **HEAD** back to **main** with `git checkout main`, and then delete new-feature branch with: `git branch -d new-feature`
 
+**Note**: You will probably get an error that the branch new-feature is not fully merged, which means that there are changes on it that are not present on our local main. But since we will pull our changes to **main** from the remote (which is fully merged now) we don't care. So we can confirm deleting with `git branch -D new-feature`
+
+9. Finally, sync your main to the fully merged remote main with `git pull`. 
+
+And you're done! That's the right way of updating your own project. Or just keep pushing to **main**, I'm not your mom and it's your project.
