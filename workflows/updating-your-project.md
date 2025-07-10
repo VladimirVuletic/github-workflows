@@ -61,4 +61,27 @@ The workflow to, for example, add a feature to the **main** branch is usually as
 4. If you're using *git bash*, you'll see that your branch is changed now. Also, if you're using Visual Studio Code, you can see your current branch.
 
 5. Make the changes that you want to make to the files. Then do the same old staging and committing: 
-`
+`git add .`
+`git commit -m "docs: modify updating-your-project.md via pull request`
+
+6. Now we will push **the new branch** to our remote repo with: 
+`git push origin new-feature`
+
+7. Now if we go to the GitHub repo in our browser, we can see that the remote repo also has a new branch called new-feature. We now open what we is called a **pull request**. A pull request, or **PR**, is a request we will make to the main branch owner to pull the changes we made into the main branch. 
+
+We're the main branch owner here, so we're playing the both roles in this case.
+
+8. We click on the **Pull requests** tab, then **New pull requst**. We pick the main as the *base*, and the new-feature branch as the *compare*. 
+
+Then we click on **Create pull request**, add more description if needed and finally click on **Create pull request**.
+
+And finally (and this would be done by somebody else if it wasn't our repo) we click on **Merge pull request** and **Confirm merge**.
+
+We get this message: 
+> Pull request successfully merged and closed
+> You're all set — the new-feature branch can be safely deleted.
+
+And an option to delete the branch by clicking **Delete branch**, which we'll do.
+
+After we've done that, we can delete that branch locally as well.
+
