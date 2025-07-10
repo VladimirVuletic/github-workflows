@@ -17,9 +17,9 @@ Now your terminal is 'inside' that folder, ready to work there.
 
 This creates a hidden `.git` directory (file) inside your folder. That directory holds all the metadata Git needs to track changes in your project. From this point on, Git will monitor everything inside this folder.
 
-**Note**: To align with most GitHub defaults, you s rename the initial branch to `main`: `git branch -M main`. We will be covering branches in another workflow.
+**Note**: To align with most GitHub defaults, you should rename the initial branch to `main`: `git branch -M main`. We will be covering branches in another workflow.
 
-4. Create your documentation file and a folder for scenarios:
+4. Create your documentation file and a folder for workflows (scenarios):
 
    ```
    touch README.md
@@ -29,7 +29,7 @@ This creates a hidden `.git` directory (file) inside your folder. That directory
 
    * `README.md` is where you’ll describe your project.
    * `workflows/` will hold each scenario as its own Markdown file.
-   * Files ending in `.md` are Markdown files - similar plain tex but with simple formatting, ideal for documentation and READMEs.
+   * Files ending in `.md` are Markdown files - similar plain text but with simple formatting, ideal for documentation and READMEs.
 
 5. Open and edit your files in your preferred editor (Visual Studio Code, Notepad++ etc.).
 
@@ -73,7 +73,7 @@ This is now our **remote repository**.
 
 This command will take two arguments:
    - A name of your choosing, by which you'll refer to the remote repository (usually we use `origin`)
-   - An URL to the remote repository (found on the repository page), something like: https://github.com/YourUsername/github-workflows.git
+   - An URL to the remote repository (found on the repository page), something like: https://github.com/YourUsername/github-workflows.git 
 
 So, for me, the full command is:
 `git remote add origin https://github.com/VladimirVuletic/github-workflows.git`

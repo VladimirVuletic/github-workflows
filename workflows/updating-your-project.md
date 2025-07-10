@@ -18,7 +18,7 @@ For me, I have two changes that are not staged for a commit:
 And one untracked file:
     workflows/updating-your-project.md
 
-3. To add **all** changes in the current directory to the staging area we can use `git add .` However, sice I've modified one scneario and added a new one, it makes more sense for me to actually do two separete commits, so that's what I'm going to do.
+3. To add **all** changes in the current directory to the staging area we can use `git add .` However, sice I've modified one scenario and added a new one, it makes more sense for me to actually do two separete commits, so that's what I'm going to do.
 `git add README.md workflows/creating-new-project.md`
 
 4. Now let's create a **commit** with a descriptive message:
@@ -29,9 +29,9 @@ And one untracked file:
 5. Now let's make another commit for the new scenario we added. But first, we add it to the staging area. We can do `git add .` for the whole directory, since it's the only uncommited change anyways. And then we do:
 `git commit -m "docs: add new scenario updating-your-project.md"`
 
-5. Now before we `push` our updates to the remote repo, it's good practice to `pull` first. We do this so we don't overwrite others' work, and to have the latest version locally.
+6. Now before we `push` our updates to the remote repo, it's good practice to `pull` first. We do this so we don't overwrite others' work, and to have the latest version locally.
 
-Pull from the remote repo won't overwrite the changes we've made locally, it will only pull all the commits that maybe happened in the meantime. However, if somebody else was working on the same files in the same place, we will get a **merge coflict**, but more on that later.
+Pull from the remote repo won't overwrite the changes we've made locally, it will only pull all the commits that maybe happened in the meantime. However, if somebody else was working on the same files in the same place, we will get a **merge conflict**, but more on that later.
 
 For now, let's just pull the updates from remote to the local. 
 
@@ -39,7 +39,7 @@ We can do `git pull origin main`, or, since we've already set the upstream in th
 
 In my case, I'm getting `Already up to date.` messages, so there's nothing to worry or think about.
 
-6. Now we're ready to `push`. Again, we can do `git push origin main`, or simply `git push`, since the upstream is already set.
+7. Now we're ready to `push`. Again, we can do `git push origin main`, or simply `git push`, since the upstream is already set.
 
 And there we go! Your project is now updated and your local and remote repos are in sync. **However**, as we said in the beginning, this is not the right way to update your project, so let's talk about the branches.
 
@@ -53,7 +53,7 @@ The workflow to, for example, add a feature to the **main** branch is usually as
 
 1. First, make sure your local **main** is up to date by doing a `git pull`
 
-2. Create a new branch called whatever you want by doing `branch new-feature` (new-feature is the name we chose here). This new branch, at this moment in time is the exact copy of your main branch. But from now on, changes done on each branch won't affect the state on the other branch, they are independant. 
+2. Create a new branch called whatever you want by doing `git branch new-feature` (new-feature is the name we chose here). This new branch, at this moment in time is the exact copy of your main branch. But from now on, changes done on each branch won't affect the state on the other branch, they are independant. 
 
 3. 'Move' to the newly created branch. (You actually move the cursor called **HEAD**, but that's not that important right now) by doing:
 `git checkout new‑feature`
