@@ -2,6 +2,8 @@
 
 This scenario assumes you already have an existing project both locally and on GitHub, and you want to make changes, incorporate any remote updates, and keep everything in sync. If you didn't do it already, you should do **Creating a New Project** scenario before this one.
 
+Also, the following workflow will tell you about the easiest, however, arguably not the 'right' way to modify your project. After you've learned and understood the easiest way (without using **branches**), we'll talk about the right way.
+
 1. Make your changes locally
 
    * Open your project in your editor (VS Code, Sublime, Vim, etc.)
@@ -39,116 +41,24 @@ In my case, I'm getting `Already up to date.` messages, so there's nothing to wo
 
 6. Now we're ready to `push`. Again, we can do `git push origin main`, or simply `git push`, since the upstream is already set.
 
-   * If there are merge conflicts, resolve them in your editor, then stage and commit the resolutions:
+And there we go! Your project is now updated and your local and remote repos are in sync. **However**, as we said in the beginning, this is not the right way to update your project, so let's talk about the branches.
 
-     ```bash
-     git add .
-     git commit -m "fix: resolve merge conflicts"
-     ```
+When you first initialize a new repo, you only have one branch - the **main** branch. That's what the `git branch -M main` command is for, basically. If run immediately after `git init`, you will make sure that your one and only branch is called **main**, which is standard for GitHub. It used to be **master**, which is sometimes still the default, which is why we run that command.
 
-6. Push your local commits to GitHub:
+**main** branch is where you want to keep your completely tested and approved code, the commits that passed with flying colors. **main** branch is supposed to be stable and is your best bet to be run on production.
 
-   ```bash
-   git push
-   ```
+Developers **DO NOT** push directly to **main**, and are usually not allowed to (you can forbid pushing directly to **main** in your remote repo settings).
 
-   * Because you previously set the upstream with `-u`, you can omit `origin main`
+The workflow to, for example, add a feature to the **main** branch is usually as follows:
 
-7. Verify on GitHub.com that your new commit appears and your project is up to date.
+1. First, make sure your local **main** is up to date by doing a `git pull`
 
-**Side‑note:**
+2. Create a new branch called whatever you want by doing `branch new-feature` (new-feature is the name we chose here). This new branch, at this moment in time is the exact copy of your main branch. But from now on, changes done on each branch won't affect the state on the other branch, they are independant. 
 
-* Always pull (`git pull`) regularly when collaborating to minimize conflicts.
-* Consider using branches for larger updates: create a branch (`git checkout -b my-feature`), work there, then merge via a pull request.
-* Keep commit messages clear and concise to make your project history easy to read.
+3. 'Move' to the newly created branch. (You actually move the cursor called **HEAD**, but that's not that important right now) by doing:
+`git checkout new‑feature`
 
+4. If you're using *git bash*, you'll see that your branch is changed now. Also, if you're using Visual Studio Code, you can see your current branch.
 
-
-
-
-
-# Updating Your Project
-
-This scenario assumes you already have an existing project both locally and on GitHub, and you want to make changes, incorporate any remote updates safely, and keep everything in sync.
-
-1. Make your changes locally
-
-   * Open your project in your editor (VS Code, Sublime, Vim, etc.)
-   * Edit, add, or delete files as needed for your update
-
-2. Check the status of your working directory:
-
-   ```bash
-   git status
-   ```
-
-   * You’ll see which files are modified, added, or deleted
-
-3. Stage your changes:
-
-   * To stage all changes in the current directory:
-
-     ```bash
-     git add .
-     ```
-   * Or to stage individual files:
-
-     ```bash
-     git add path/to/changed-file.js
-     ```
-
-4. Create a commit with a descriptive message:
-
-   ```bash
-   git commit -m "feat: describe your update here"
-   ```
-
-   * Use prefixes like `feat:`, `fix:`, `docs:`, or `chore:` to keep commit messages consistent
-
-5. Fetch remote updates without merging immediately:
-
-   ```bash
-   git fetch origin
-   ```
-
-   * This downloads new commits from the remote `origin` but does **not** change your local files or branches.
-   * To see what’s new on the remote before merging:
-
-     ```bash
-     git log HEAD..origin/main
-     git diff origin/main..HEAD
-     ```
-
-6. Merge remote changes into your branch (safe integration):
-
-   ```bash
-   git merge origin/main
-   ```
-
-   * This combines the fetched commits from `origin/main` into your current branch.
-   * If there are conflicts, Git will pause, and you’ll need to resolve the conflicting files, then:
-
-     ```bash
-     git add .
-     git commit -m "fix: resolve merge conflicts"
-     ```
-
-   **Why use `fetch` + `merge` instead of `pull`?**
-
-   * `git pull` is shorthand for `git fetch` + `git merge` in one step. It won’t overwrite your local commits, but doing it separately gives you a chance to review changes before merging.
-
-7. Push your local commits (including the merge) to GitHub:
-
-   ```bash
-   git push
-   ```
-
-   * Since you set the upstream branch before, you can omit `origin main`.
-
-8. Verify on GitHub.com that your new commit and merged updates appear.
-
-**Side‑notes:**
-
-* `git fetch` never overwrites your working files; it only updates remote-tracking branches.
-* A plain `git pull` also won’t overwrite committed work, but may automatically merge and create a merge commit.
-* For larger features or experiments, consider creating a new branch (`git checkout -b my-feature`) and later merging via a Pull Request on GitHub.
+5. Make the changes that you want to make to the files. Then do the same old staging and committing: 
+`
