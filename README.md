@@ -6,7 +6,6 @@ The author is using Windows 10, Visual Studio Code and Git Bash.
 
 Whether you're creating a new project, setting up version control for an existing one, or contributing to open source, this guide shows you exactly how to do it — step by step.
 
----
 
 ## Workflows Covered
 
@@ -16,9 +15,9 @@ Whether you're creating a new project, setting up version control for an existin
 > - Optional tips & gotchas
 
 ### Workflows
-- [ ] **Creating a New Project**  
+- [x] **Creating a New Project**  
 
----
+
 
 ## Structure
 
