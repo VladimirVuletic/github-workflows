@@ -14,9 +14,11 @@ Whether you're creating a new project, setting up version control for an existin
 > - Required commands
 > - Optional tips & gotchas
 
-### Workflows
-- [x] **Creating a New Project**  
 
+### Workflows
+
+- [x] **Creating a New Project**  
+- [x] **Updating Your Project**
 
 
 ## Structure
