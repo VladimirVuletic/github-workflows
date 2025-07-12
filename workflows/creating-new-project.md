@@ -96,4 +96,4 @@ Congratulations - you're done! (But actually you've only just started!)
 - Created a corresponding GitHub repo
 - And synced them. 
    
- Ready for the next core workflow: Making changes to your project?
+Ready for the next core workflow: Making changes to your project?

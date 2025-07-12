@@ -6,17 +6,19 @@ Also, the following workflow will tell you about the easiest, however, arguably 
 
 1. Make your changes locally
 
-   * Open your project in your editor (VS Code, Sublime, Vim, etc.)
-   * Edit, add, or delete files as needed for your update
+* Open your project in your editor (VS Code, Sublime, Vim, etc.)
+* Edit, add, or delete files as needed for your update
 
 2. Check the status of your working directory and the staging area with `git status`.  You’ll see which files are modified, added, or deleted.
 
 For me, I have two changes that are not staged for a commit: 
-    modified:   README.md
-    modified:   workflows/creating-new-project.md
+```
+modified:   README.md
+modified:   workflows/creating-new-project.md
+```
 
 And one untracked file:
-    workflows/updating-your-project.md
+`workflows/updating-your-project.md`
 
 3. To add **all** changes in the current directory to the staging area we can use `git add .` However, sice I've modified one scenario and added a new one, it makes more sense for me to actually do two separete commits, so that's what I'm going to do.
 `git add README.md workflows/creating-new-project.md`
@@ -24,22 +26,25 @@ And one untracked file:
 4. Now let's create a **commit** with a descriptive message:
 `git commit -m "docs: modify creating-new-project.md"`
 
-**Note**: We can use prefixes like `feat:`, `fix:`, `docs:`, or `chore:` to keep commit messages consistent. You can see the full proposed list here: https://www.conventionalcommits.org/en/v1.0.0-beta.2/#summary
+   **Note**: We can use prefixes like `feat:`, `fix:`, `docs:`, or `chore:` to keep commit messages consistent. You can see the full proposed list here: https://www.conventionalcommits.org/en/v1.0.0-beta.2/#summary
+
 
 5. Now let's make another commit for the new scenario we added. But first, we add it to the staging area. We can do `git add .` for the whole directory, since it's the only uncommited change anyways. And then we do:
 `git commit -m "docs: add new scenario updating-your-project.md"`
 
 6. Now before we `push` our updates to the remote repo, it's good practice to `pull` first. We do this so we don't overwrite others' work, and to have the latest version locally.
 
-Pull from the remote repo won't overwrite the changes we've made locally, it will only pull all the commits that maybe happened in the meantime. However, if somebody else was working on the same files in the same place, we will get a **merge conflict**, but more on that later.
+   Pull from the remote repo won't overwrite the changes we've made locally, it will only pull all the commits that maybe happened in the meantime. However, if somebody else was working on the same files in the same place, we will get a **merge conflict**, but more on that later.
 
-For now, let's just pull the updates from remote to the local. 
+   For now, let's just pull the updates from remote to the local. 
 
-We can do `git pull origin main`, or, since we've already set the upstream in the previous scenario **Creating a New Project**, we can simply do `git pull`.
+   We can do `git pull origin main`, or, since we've already set the upstream in the previous scenario **Creating a New Project**, we can simply do `git pull`.
 
-In my case, I'm getting `Already up to date.` messages, so there's nothing to worry or think about.
+   In my case, I'm getting `Already up to date.` messages, so there's nothing to worry or think about.
 
 7. Now we're ready to `push`. Again, we can do `git push origin main`, or simply `git push`, since the upstream is already set.
+
+
 
 And there we go! Your project is now updated and your local and remote repos are in sync. **However**, as we said in the beginning, this is not the right way to update your project, so let's talk about the branches.
 
